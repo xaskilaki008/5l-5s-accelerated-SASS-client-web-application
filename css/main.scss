@@ -1,0 +1,361 @@
+// Определение переменных для основных цветов
+$navbar-bg: #0e0042;
+$link-color: white;
+$hover-bg: rgb(180, 0, 0);
+$navbar1-bg: #1f0b0b;
+$link-color1: rgb(147, 255, 120);
+$dropdown-bg: #f9f9f9;
+$tooltip-bg: #3989c9;
+$container-bg: #f4f4f9;
+
+// Миксин для плавного перехода
+@mixin transition($properties...) {
+  transition: $properties; // Используем список свойств
+}
+
+.navbar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: $navbar-bg;
+
+  a {
+    float: left;
+    font-size: 16px;
+    color: $link-color;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
+    @include transition(background-color 0.5s ease, transform 0.3s ease); // Миксин
+
+    &:hover, .dropdown:hover .dropbtn {
+      background-color: $hover-bg;
+      transform: scale(1.1);
+      z-index: 10;
+      border-radius: 10px;
+      @include transition(transform 0.2s ease-in-out); // Миксин
+    }
+  }
+}
+
+.navbar1 {
+  background-color: $navbar1-bg;
+  overflow: hidden;
+  padding: 5px 10px;
+
+  a {
+    float: left;
+    color: $link-color1;
+    text-align: center;
+    padding: 5px 10px;
+    text-decoration: none;
+    font-size: 14px;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: #ffe2e2;
+      color: black;
+      transform: scale(1.1);
+      border-radius: 10px;
+      @include transition(transform 0.2s ease-in-out); // Миксин
+    }
+  }
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+
+  .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: $link-color;
+    padding: 14px 16px;
+    background-color: inherit;
+    margin: 0;
+    @include transition(background-color 0.5s ease, transform 0.3s ease); // Миксин
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  .dropdown-content {
+    position: absolute;
+    background-color: $dropdown-bg;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 1s ease, transform 1s ease, visibility 1s ease;
+
+    &:hover {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    a {
+      float: none;
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+
+      &:hover {
+        background-color: #ddd;
+        transform: scale(1.2);
+      }
+    }
+  }
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffeaec85;
+  color: #333;
+  margin: 20px;
+}
+
+header {
+  position: relative;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: blur(3px);
+}
+
+.header-text {
+  position: absolute; 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%);
+  color: white; 
+  font-size: 2.5rem; 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  margin: 0; 
+}
+
+.current-time {
+  font-size: 14px;
+  color: #62ff91;
+  text-align: right;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.table-image-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 50%;
+  margin-bottom: 20px;
+
+  th, td {
+    border: 3px solid rgb(70, 70, 70);
+    padding: 10px;
+    text-align: left;
+  }
+}
+
+.image-tooltip-container {
+  position: relative;
+  display: inline-block;
+
+  .tooltip-image {
+    width: 200px;
+    height: auto;
+    cursor: pointer;
+  }
+
+  .tooltip-text {
+    visibility: hidden;
+    width: 220px;
+    background-color: $tooltip-bg;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    bottom: 70%;
+    left: 80%;
+    margin-left: -110px;
+    opacity: 0;
+    transition: opacity 1s ease-out;
+
+    &.visible {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  &:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.text-biography {
+  text-indent: 10%;
+  margin-left: 10%;
+  width: 50%;
+  margin-bottom: 10px;
+}
+
+.biography {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+}
+
+.image {
+  flex: 1 1 calc(25% - 20px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  position: relative;
+  width: 200px;
+  height: auto;
+  cursor: pointer;
+  margin-bottom: 50px;
+  text-align: center;
+
+  img {
+    width: 70%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    @include transition(transform 0.3s ease); // Миксин
+
+    &:hover {
+      transform: scale(1.5);
+    }
+  }
+}
+
+.hover_image {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 5px;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+  text-align: center;
+  width: 100%;
+  margin: 10px 0 0;
+}
+
+.image:hover .hover_image {
+  visibility: visible;
+  opacity: 1;
+}
+
+.under_image {
+  text-align: center;
+  font-style: italic;
+  margin-top: 10px;
+}
+
+.container-1,
+.container-2 {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  background-color: $container-bg;
+  margin-bottom: 100px;
+}
+
+.text {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  color: #333;
+  cursor: pointer;
+  user-select: none;
+
+  &.left {
+    left: 10px;
+  }
+
+  &.right {
+    right: 10px;
+  }
+}
+
+footer {
+  background-color: #2c2c2c;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  text-align: center; 
+  width: 99%;   
+  font-size: 19px;
+  font-weight: bold;
+  color: #fafaff;  
+}
+
+.table-disc {
+  border-collapse: collapse;
+  width: 100%;
+
+  th,
+  td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+}
+
+.text-1 {
+  padding-bottom: 50px;
+}

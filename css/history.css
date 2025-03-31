@@ -1,0 +1,324 @@
+.navbar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #0e0042;
+}
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  transform-origin: center center;
+  position: relative;
+  z-index: 1;
+  transition: background-color 0.5s ease, transform 0.3s ease;
+}
+.navbar a:hover,
+.navbar a .dropdown:hover .dropbtn {
+  background-color: rgb(180, 0, 0);
+  transform: scale(1.1);
+  transition: transform 0.2s ease-in-out;
+  z-index: 10;
+  border-radius: 10px;
+}
+
+.navbar1 {
+  background-color: #1f0b0b;
+  overflow: hidden;
+  padding: 5px 10px;
+}
+.navbar1 a {
+  float: left;
+  color: rgb(147, 255, 120);
+  text-align: center;
+  padding: 5px 10px;
+  text-decoration: none;
+  font-size: 14px;
+  border-radius: 5px;
+}
+.navbar1 a:hover {
+  background-color: #ffe2e2;
+  color: black;
+  transform: scale(1.1);
+  transition: transform 0.2s ease-in-out;
+  border-radius: 10px;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+  transition: background-color 0.5s ease, transform 0.3s ease;
+}
+.dropdown .dropbtn:hover {
+  transform: scale(1.2);
+}
+.dropdown .dropdown-content {
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 1s ease, transform 1s ease, visibility 1s ease;
+}
+.dropdown .dropdown-content:hover {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.dropdown .dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  transition: background-color 1s ease, transform 0.3s ease;
+}
+.dropdown .dropdown-content a:hover {
+  background-color: #ddd;
+  transform: scale(1.2);
+}
+
+header {
+  position: relative;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: blur(3px);
+}
+
+.header-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  margin: 0;
+}
+
+main {
+  padding-top: 40px;
+  padding-left: 50px;
+  padding-right: 50px;
+  font-size: 15px;
+  font-family: sans-serif;
+}
+main h1 {
+  font-family: sans-serif;
+  font-size: 25px;
+  text-align: center;
+}
+main h2 {
+  font-size: 15px;
+  text-align: center;
+}
+main span {
+  margin-top: 10px;
+}
+main .linkable {
+  scroll-margin-top: 55px;
+}
+main .image-wrapper {
+  float: right;
+  margin-left: 10px;
+}
+main table {
+  border-collapse: collapse;
+  width: 100%;
+  color: #000000;
+  font-family: sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+main th, main td {
+  border: 1px solid #000000;
+  padding: 5px;
+  text-align: left;
+}
+
+.main-header {
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  position: fixed;
+}
+.main-header nav ul {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+.main-header nav ul li {
+  margin-right: 15px;
+  margin-top: 0;
+}
+.main-header nav ul li a {
+  text-decoration: none;
+  color: rgb(173, 173, 173);
+}
+.main-header nav ul li a:hover {
+  color: #ffffff;
+}
+.main-header nav p {
+  margin: 0;
+}
+
+#currentDateTime {
+  text-align: right;
+  color: white;
+  font-weight: bold;
+}
+
+.error-message {
+  display: none;
+  color: red;
+  font-size: 14px;
+}
+
+.error-input {
+  border: 1px solid red;
+}
+
+.valid-input {
+  border: 1px solid green;
+}
+
+.calendar {
+  text-decoration: none;
+  color: #000000;
+  font-size: 15px;
+  font-family: sans-serif;
+  background: rgb(255, 255, 255);
+  position: absolute;
+  top: 100%;
+  display: none;
+  padding: 5px;
+  width: 300px;
+}
+.calendar--active {
+  display: block;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+.calendar__days {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.calendar__day {
+  font-weight: bold;
+  padding-right: 5px;
+  color: #000000;
+}
+.calendar__day, .calendar__date {
+  transition: 0.1s;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(255, 255, 255);
+  cursor: pointer;
+}
+.calendar__day:not(.calendar__date--empty):hover, .calendar__date:not(.calendar__date--empty):hover {
+  background: #000000;
+  color: #ffffff;
+}
+.calendar__dates {
+  display: grid;
+  gap: 0px;
+  grid-template-columns: repeat(7, 1fr);
+  margin-left: 5px;
+}
+.calendar__date--empty {
+  cursor: auto;
+  background: transparent;
+}
+.calendar__header {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+#photo-album {
+  display: flex;
+  flex-wrap: wrap;
+}
+#photo-album .row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+#photo-album .photo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 40px;
+}
+#photo-album .photo-container img {
+  width: 100%;
+  max-width: 180px;
+  height: auto;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+#photo-album .photo-container .caption {
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+.modal .modal-content {
+  max-width: 80%;
+  max-height: 80%;
+}
+.modal .modal-content img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/*# sourceMappingURL=history.css.map */
